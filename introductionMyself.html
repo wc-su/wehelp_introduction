@@ -46,7 +46,7 @@
         <div id="input"></div>
         <script>
             const request = new XMLHttpRequest();
-            request.open("GET", "https://wc-su.github.io/test/introductionMyself.json");
+            request.open("GET", "/test/introductionMyself.json");
             request.send();
             request.onload = function() {
                 const myObj = JSON.parse(this.responseText);
