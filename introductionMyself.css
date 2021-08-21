@@ -1,0 +1,35 @@
+body {
+    background-color: rgba(138, 138, 138, 0.1);
+}
+#input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section {
+    border: 2px solid;
+    border-color: rgba(138, 138, 138, 0.5);
+    margin-top: 20px;
+    flex: none;
+    width: 95%;
+}
+.section:hover {
+    border-color: rgba(138, 138, 138, 0.8);
+    box-shadow: 1px 1px 8px rgba(138, 138, 138, 0.7);
+}
+.header {
+    background-color: rgba(138, 138, 138, 0.25);
+    font-size: 22px;
+    padding: 5px;
+    padding-left: 10px;
+}
+.header:hover {
+    cursor: pointer;
+}
+.content {
+    background-color: white;
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+}
