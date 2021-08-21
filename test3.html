@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <title>自我簡介</title>
+        <!-- <link rel="stylesheet" type="text/css" href="introductionMyself.css" /> -->
+        <style>
+            body {
+                background-color: rgba(138, 138, 138, 0.1);
+            }
+            #input {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                border: 2px solid;
+                border-color: rgba(138, 138, 138, 0.5);
+                margin-top: 20px;
+                flex: none;
+                width: 95%;
+            }
+            .section:hover {
+                border-color: rgba(138, 138, 138, 0.8);
+                box-shadow: 1px 1px 8px rgba(138, 138, 138, 0.7);
+            }
+            .header {
+                background-color: rgba(138, 138, 138, 0.25);
+                font-size: 22px;
+                padding: 5px;
+                padding-left: 10px;
+            }
+            .header:hover {
+                cursor: pointer;
+            }
+            .content {
+                background-color: white;
+                font-size: 16px;
+                padding-top: 8px;
+                padding-bottom: 15px;
+                padding-left: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="input"></div>
+        <script>
+            let inputText = '{"intro":[' +
+                    '{ "header":"個人簡介", ' +
+                        '"content":"1" },' +
+                    '{ "header":"為什麼想成為工程師？", ' +
+                        '"content":"2" },' +
+                    '{ "header":"為了成為工程師，曾經做過什麼努力？", ' +
+                        '"content":"3" },' +
+                    '{ "header":"對於工程師的職業想像是什麼？", ' +
+                        '"content":"4" },' +
+                    '{ "header":"如果參與這個計畫，會怎麼安排學習時間？", ' +
+                        '"content":"5" },' +
+                    '{ "header":"如果參與這個計畫，預期會碰到什麼困難？你打算怎麼解決它？", ' +
+                        '"content":"6" },' +
+                    '{ "header":"想要對我們說的事情？", ' +
+                        '"content":"7" }' +
+                    ']}';
+            let myObj = JSON.parse(inputText);
+            let input = document.getElementById("input");
+            for(let i = 0; i < myObj.intro.length; i++){
+                let section = document.createElement("DIV");
+                section.className = "section";
+                let header = document.createElement("DIV");
+                header.innerHTML = myObj.intro[i].header;
+                header.className = "header";
+                header.addEventListener('click', headerOnClick);
+                let content = document.createElement("DIV");
+                content.innerHTML = myObj.intro[i].content;
+                content.className = "content";
+                section.appendChild(header);
+                section.appendChild(content);
+                input.appendChild(section);
+            }
+
+            // let request = new XMLHttpRequest();
+            // // request.open("GET", "/introduction/introductionMyself.json");
+            // request.open("GET", "https://wc-su.github.io/introduction/introductionMyself.json");
+            // request.send();
+            // request.onload = function() {
+            //     let myObj = JSON.parse(this.responseText);
+            //     let input = document.getElementById("input");
+            //     for(let i = 0; i < myObj.intro.length; i++){
+            //         let section = document.createElement("DIV");
+            //         section.className = "section";
+            //         let header = document.createElement("DIV");
+            //         header.innerHTML = myObj.intro[i].header;
+            //         header.className = "header";
+            //         header.addEventListener('click', headerOnClick);
+            //         let content = document.createElement("DIV");
+            //         content.innerHTML = myObj.intro[i].content;
+            //         content.className = "content";
+            //         section.appendChild(header);
+            //         section.appendChild(content);
+            //         input.appendChild(section);
+            //     }
+            // };
+
+            function headerOnClick(event) {
+                let header = event.currentTarget;
+                let content = header.nextElementSibling;
+                if(content.style.display == "none"){
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            }
+        </Script>
+    </body>
+</html>
