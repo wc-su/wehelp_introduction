@@ -29,6 +29,7 @@
                 }
             };
             request.open("GET", "introductionMyself.json");
+            request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
             request.responseType = 'text';
             request.send();
 
