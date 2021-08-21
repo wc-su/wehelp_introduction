@@ -9,23 +9,22 @@
     <body>
         <div id="input"></div>
         <script>
-            const request = new XMLHttpRequest();
+            let request = new XMLHttpRequest();
             // request.open("GET", "introductionMyself.json");
             // request.open("GET", "/introduction/introductionMyself.json");
             request.open("GET", "https://wc-su.github.io/introduction/introductionMyself.json");
             request.send();
             request.onload = function() {
-                const myObj = JSON.parse(this.responseText);
-                let textInput = '';
+                let myObj = JSON.parse(this.responseText);
                 let input = document.getElementById("input");
                 for(let i = 0; i < myObj.intro.length; i++){
-                    var section = document.createElement("DIV");
+                    let section = document.createElement("DIV");
                     section.className = "section";
-                    var header = document.createElement("DIV");
+                    let header = document.createElement("DIV");
                     header.innerHTML = myObj.intro[i].header;
                     header.className = "header";
                     header.addEventListener('click', headerOnClick);
-                    var content = document.createElement("DIV");
+                    let content = document.createElement("DIV");
                     content.innerHTML = myObj.intro[i].content;
                     content.className = "content";
                     section.appendChild(header);
