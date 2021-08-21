@@ -10,8 +10,6 @@
         <div id="input"></div>
         <script>
             let request = new XMLHttpRequest();
-            request.open("GET", "introductionMyself.json");
-            request.send();
             request.onload = function() {
                 let myObj = JSON.parse(this.responseText);
                 let input = document.getElementById("input");
@@ -30,6 +28,9 @@
                     input.appendChild(section);
                 }
             };
+            request.open("GET", "introductionMyself.json");
+            request.responseType = 'json';
+            request.send();
 
             function headerOnClick(event) {
                 let header = event.currentTarget;
