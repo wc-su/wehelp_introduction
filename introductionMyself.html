@@ -12,9 +12,9 @@
         <div id="input"></div>
         <script>
             const request = new XMLHttpRequest();
-            // request.open("GET", "introductionMyself.json");
-            request.open("GET", "/introduction/introductionMyself.json");
-            request.open("GET", "https://wc-su.github.io/introduction/introductionMyself.json");
+            request.open("GET", "introductionMyself.json");
+            // request.open("GET", "/introduction/introductionMyself.json");
+            // request.open("GET", "https://wc-su.github.io/introduction/introductionMyself.json");
             request.send();
             request.onload = function() {
                 const myObj = JSON.parse(this.responseText);
