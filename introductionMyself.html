@@ -15,15 +15,15 @@
             }).then(function(result){
                 let myObj = JSON.parse(result);
                 let input = document.getElementById("input");
-                for(let i = 0; i < myObj.intro.length; i++){
+                for(let i = 0; i < myObj.length; i++){
                     let section = document.createElement("DIV");
                     section.className = "section";
                     let header = document.createElement("DIV");
-                    header.innerHTML = myObj.intro[i].header;
+                    header.innerHTML = myObj[i].header;
                     header.className = "header";
                     header.addEventListener('click', headerOnClick);
                     let content = document.createElement("DIV");
-                    content.innerHTML = myObj.intro[i].content;
+                    content.innerHTML = myObj[i].content;
                     content.className = "content";
                     section.appendChild(header);
                     section.appendChild(content);
