@@ -13,17 +13,16 @@
             fetch(src).then(function(response){
                 return response.text();
             }).then(function(result){
-                let myObj = JSON.parse(result);
                 let input = document.getElementById("input");
-                for(let i = 0; i < myObj.length; i++){
+                for(let i = 0; i < result.length; i++){
                     let section = document.createElement("DIV");
                     section.className = "section";
                     let header = document.createElement("DIV");
-                    header.innerHTML = myObj[i].header;
+                    header.innerHTML = result[i].header;
                     header.className = "header";
                     header.addEventListener('click', headerOnClick);
                     let content = document.createElement("DIV");
-                    content.innerHTML = myObj[i].content;
+                    content.innerHTML = result[i].content;
                     content.className = "content";
                     section.appendChild(header);
                     section.appendChild(content);
