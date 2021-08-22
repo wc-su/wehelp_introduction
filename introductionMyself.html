@@ -11,10 +11,8 @@
         <script>
             let src = "https://wc-su.github.io/introduction/introductionMyself.json";
             fetch(src).then(function(response){
-                // console.log(response);
                 return response.text();
             }).then(function(result){
-                // console.log("最後的資料", result);
                 let myObj = JSON.parse(result);
                 let input = document.getElementById("input");
                 for(let i = 0; i < myObj.intro.length; i++){
