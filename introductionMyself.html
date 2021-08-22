@@ -7,13 +7,14 @@
         <link rel="stylesheet" type="text/css" href="introductionMyself.css" />
     </head>
     <body>
-        <div id="input"></div>
+        <div id="input">Loading...</div>
         <script>
             let src = "https://wc-su.github.io/introduction/introductionMyself.json";
             fetch(src).then(function(response){
                 return response.json();
             }).then(function(result){
                 let input = document.getElementById("input");
+                input.innerHTML = "";
                 for(let i = 0; i < result.length; i++){
                     let section = document.createElement("DIV");
                     section.className = "section";
