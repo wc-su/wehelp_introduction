@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <title>自我簡介</title>
+        <link rel="stylesheet" type="text/css" href="introductionMyself.css" />
+    </head>
+    <body>
+        <div id="input"></div>
+        <script>
+            let src = "https://wc-su.github.io/introduction/introductionMyself.json";
+            fetch(src).then(function(response){
+                return response.json();
+            }).then(function(result){
+                let input = document.getElementById("input");
+                for(let i = 0; i < result.length; i++){
+                    let section = document.createElement("DIV");
+                    section.className = "section";
+                    let header = document.createElement("DIV");
+                    header.innerHTML = result[i].header;
+                    header.className = "header";
+                    header.addEventListener('click', headerOnClick);
+                    let content = document.createElement("DIV");
+                    content.innerHTML = result[i].content;
+                    content.className = "content";
+                    section.appendChild(header);
+                    section.appendChild(content);
+                    input.appendChild(section);
+                }
+            });
+
+            function headerOnClick(event) {
+                let header = event.currentTarget;
+                let content = header.nextElementSibling;
+                if(content.style.display == "none"){
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            }
+        </Script>
+    </body>
+</html>
