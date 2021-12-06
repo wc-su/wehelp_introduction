@@ -1,4 +1,4 @@
-body, h2, p {
+body, h3, p {
     margin: 0;
 }
 ul {
@@ -50,11 +50,27 @@ h1 {
 .introduction li:not(:last-child) {
     border-bottom: 1px solid lightgray;
 }
-.introduction li h2, .introduction li p {
+.introduction li h3 {
+    border-bottom: 1px dashed lightgray;
     padding: 1rem;
 }
-.introduction li h2 {
-    border-bottom: 1px dashed lightgray;
+.introduction li p {
+    text-indent: 2rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    line-height: 1.8;
+}
+.introduction li ul.list {
+    list-style: square;
+    margin-left: 4rem;
+}
+.introduction li ul.list li {
+    border: none;
+    padding: 0 0 0.5rem 0;
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 @media (max-width: 768px) {
